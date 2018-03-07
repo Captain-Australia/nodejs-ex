@@ -116,7 +116,7 @@ app.get('/autoinc', function (req, res) {
       storage.setItem(name, value);
   }
   value = storage.getItemSync(name);
-  res.send({ name:name , value:value });
+  res.send({ counter:name , value:value });
 });
 
 app.get('/fvp', function (req, res) {
