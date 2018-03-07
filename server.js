@@ -104,7 +104,7 @@ app.get('/pagecount', function (req, res) {
 
 app.get('/autoinc', function (req, res) {
   console.log('Autoinc...');
-  var name  = 'autoinc';
+  var name = req.query.counter ? req.query.counter : 'autoinc';
   storage.initSync({ dir:'NameValuePairs/'+name });
   var value = storage.getItemSync(name); // Check if it's already set
   console.log('value='+value);
@@ -116,7 +116,7 @@ app.get('/autoinc', function (req, res) {
       storage.setItem(name, value);
   }
   value = storage.getItemSync(name);
-  res.send({ counter:value });
+  res.send({ name:name ; value:value });
 });
 
 app.get('/fvp', function (req, res) {
