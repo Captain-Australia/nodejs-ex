@@ -102,6 +102,23 @@ app.get('/pagecount', function (req, res) {
   }
 });
 
+app.get('/autoinc', function (req, res) {
+  console.log('Autoinc...');
+  var name  = 'autoinc';
+  storage.initSync({ dir:'NameValuePairs/'+name });
+  var value = storage.getItemSync(name); // Check if it's already set
+  console.log('value='+value);
+  if (value >= 0) {
+      value = value + 1
+      storage.setItem(name, value);
+  } else {
+      value = 0;
+      storage.setItem(name, value);
+  }
+  value = storage.getItemSync(name);
+  res.send({ counter:value });
+});
+
 app.get('/fvp', function (req, res) {
   // Say hello
   res.send('Hello Frank');
