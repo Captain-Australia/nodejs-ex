@@ -2,11 +2,11 @@
 const http         = require('http');
 const fs           = require('fs');
 const path         = require('path');
-#const storage      = require('node-persist');
-#const request      = require('request');
-#const contentTypes = require('./utils/content-types');
-#const sysInfo      = require('./utils/sys-info');
-#const util         = require('util');
+const storage      = require('node-persist');
+const request      = require('request');
+//const contentTypes = require('./utils/content-types');
+//const sysInfo      = require('./utils/sys-info');
+const util         = require('util');
 var   env          = process.env;
 
 var express = require('express'),
